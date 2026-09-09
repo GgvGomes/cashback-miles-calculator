@@ -46,6 +46,12 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --color-veredito-ok: var(--veredito-ok);
+  --color-veredito-ok-bg: var(--veredito-ok-bg);
+  --color-veredito-limite: var(--veredito-limite);
+  --color-veredito-limite-bg: var(--veredito-limite-bg);
+  --color-veredito-nao: var(--veredito-nao);
+  --color-veredito-nao-bg: var(--veredito-nao-bg);
 }
 
 :root {
@@ -81,6 +87,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Veredito das calculadoras: verde COMPENSA, amarelo LIMÍTROFE, vermelho NÃO COMPENSA. */
+  --veredito-ok: oklch(0.6 0.16 145);
+  --veredito-ok-bg: oklch(0.96 0.05 145);
+  --veredito-limite: oklch(0.75 0.16 85);
+  --veredito-limite-bg: oklch(0.96 0.07 85);
+  --veredito-nao: oklch(0.58 0.22 25);
+  --veredito-nao-bg: oklch(0.96 0.05 25);
 }
 
 .dark {
@@ -115,6 +129,13 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  --veredito-ok: oklch(0.75 0.16 145);
+  --veredito-ok-bg: oklch(0.27 0.06 145);
+  --veredito-limite: oklch(0.8 0.16 85);
+  --veredito-limite-bg: oklch(0.3 0.07 85);
+  --veredito-nao: oklch(0.72 0.19 25);
+  --veredito-nao-bg: oklch(0.28 0.06 25);
 }
 
 @layer base {
