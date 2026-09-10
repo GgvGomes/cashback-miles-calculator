@@ -38,10 +38,12 @@ export default function Home() {
   return (
     <div className="space-y-8">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold">Esse ponto compensa?</h1>
+        <h1 className="text-3xl font-bold tracking-tight">
+          Esse ponto compensa?
+        </h1>
         <p className="max-w-2xl text-muted-foreground">
           Seis calculadoras que executam as fórmulas do guia de pontos, milhas
-          e cashback — com as contas e as fontes sempre à mostra, nunca uma
+          e cashback, com as contas e as fontes sempre à mostra, nunca uma
           caixa-preta.
         </p>
       </div>
@@ -49,7 +51,7 @@ export default function Home() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {CALCULADORAS.map((c) => (
           <Link key={c.href} href={c.href} className="block">
-            <Card className="h-full transition-shadow hover:shadow-md">
+            <Card className="h-full border-border/80 transition-colors hover:border-primary/40 hover:shadow-sm">
               <CardHeader>
                 <CardTitle>{c.titulo}</CardTitle>
               </CardHeader>

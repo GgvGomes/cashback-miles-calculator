@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Shell } from "@/components/layout/Shell";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,10 +14,50 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://cashback-miles-calculator.vercel.app";
+const TITULO = "Compensa? — Calculadora de pontos, milhas e cashback";
+const DESCRICAO =
+  "Seis calculadoras que executam as fórmulas do guia de pontos, milhas e cashback, com as contas e as fontes sempre à mostra, nunca uma caixa-preta.";
+
 export const metadata: Metadata = {
-  title: "Compensa? — Calculadora de pontos, milhas e cashback",
-  description:
-    "Descubra se comprar pontos, assinar clube, transferir com bônus ou resgatar compensa, com as fórmulas e fontes do guia à mostra.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: TITULO,
+    template: "%s — Compensa?",
+  },
+  description: DESCRICAO,
+  keywords: [
+    "pontos",
+    "milhas",
+    "cashback",
+    "compra de pontos",
+    "clube de assinatura",
+    "calculadora de milhas",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: SITE_URL,
+    siteName: "Compensa?",
+    title: TITULO,
+    description: DESCRICAO,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITULO,
+    description: DESCRICAO,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "oklch(0.99 0.003 250)" },
+    { media: "(prefers-color-scheme: dark)", color: "oklch(0.16 0.012 255)" },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -24,9 +65,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <Shell>{children}</Shell>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Shell>{children}</Shell>
+        </ThemeProvider>
       </body>
     </html>
   );
