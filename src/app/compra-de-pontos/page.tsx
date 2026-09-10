@@ -8,6 +8,8 @@ import { SeletorPrograma } from "@/components/calc/SeletorPrograma";
 import { ResultadoCard } from "@/components/calc/ResultadoCard";
 import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
+import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
+import { comoUtilizar } from "@/data/como-utilizar";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { cpm, cpmEfetivo, classificaCPM } from "@/lib/calc/cpm";
@@ -60,12 +62,15 @@ export default function CompraDePontosPage() {
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_320px]">
       <div className="space-y-6">
-        <div>
-          <h1 className="text-2xl font-bold">Essa compra de pontos vale o preço?</h1>
-          <p className="text-muted-foreground">
-            Todo CPM na mesma régua — compra avulsa, bonificada, ou já
-            transferida para a aérea com bônus.
-          </p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold">Essa compra de pontos vale o preço?</h1>
+            <p className="text-muted-foreground">
+              Todo CPM na mesma régua — compra avulsa, bonificada, ou já
+              transferida para a aérea com bônus.
+            </p>
+          </div>
+          <ComoUtilizar conteudo={comoUtilizar.compraDePontos} />
         </div>
 
         <Card>

@@ -7,6 +7,8 @@ import { CampoPontos } from "@/components/calc/CampoPontos";
 import { ResultadoCard } from "@/components/calc/ResultadoCard";
 import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
+import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
+import { comoUtilizar } from "@/data/como-utilizar";
 import { ganhoFloat, valorPresenteParcelas } from "@/lib/calc/credito";
 import { retornoAnualCartao } from "@/lib/calc/cashback";
 import { formatBRL } from "@/lib/calc/format";
@@ -60,12 +62,15 @@ export default function CartaoPage() {
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_320px]">
       <div className="space-y-6">
-        <div>
-          <h1 className="text-2xl font-bold">O cartão compensa a anuidade?</h1>
-          <p className="text-muted-foreground">
-            Some recompensa + float e compare com a anuidade. Além disso, veja
-            se vale parcelar sem juros ou pagar à vista com desconto.
-          </p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold">O cartão compensa a anuidade?</h1>
+            <p className="text-muted-foreground">
+              Some recompensa + float e compare com a anuidade. Além disso, veja
+              se vale parcelar sem juros ou pagar à vista com desconto.
+            </p>
+          </div>
+          <ComoUtilizar conteudo={comoUtilizar.cartao} />
         </div>
 
         <Card>

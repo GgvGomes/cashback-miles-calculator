@@ -15,6 +15,8 @@ import { CampoMoeda } from "@/components/calc/CampoMoeda";
 import { CampoPontos } from "@/components/calc/CampoPontos";
 import { ResultadoCard } from "@/components/calc/ResultadoCard";
 import { FonteNota } from "@/components/calc/FonteNota";
+import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
+import { comoUtilizar } from "@/data/como-utilizar";
 import {
   totalCusto,
   totalPontos,
@@ -77,12 +79,15 @@ export default function CenarioPage() {
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_320px]">
       <div className="space-y-6">
-        <div>
-          <h1 className="text-2xl font-bold">Somando tudo, o cenário compensa?</h1>
-          <p className="text-muted-foreground">
-            Empilhe compra, clube, transferência e gasto bonificado num CPM
-            único — e veja qual passo estraga a conta.
-          </p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold">Somando tudo, o cenário compensa?</h1>
+            <p className="text-muted-foreground">
+              Empilhe compra, clube, transferência e gasto bonificado num CPM
+              único — e veja qual passo estraga a conta.
+            </p>
+          </div>
+          <ComoUtilizar conteudo={comoUtilizar.cenario} />
         </div>
 
         <Card>

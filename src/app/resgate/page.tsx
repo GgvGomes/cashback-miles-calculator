@@ -7,6 +7,8 @@ import { CampoPontos } from "@/components/calc/CampoPontos";
 import { ResultadoCard } from "@/components/calc/ResultadoCard";
 import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
+import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
+import { comoUtilizar } from "@/data/como-utilizar";
 import { valorPorMil } from "@/lib/calc/resgate";
 import { formatBRL, formatPts } from "@/lib/calc/format";
 import { usePersistedState } from "@/hooks/usePersistedState";
@@ -44,12 +46,15 @@ export default function ResgatePage() {
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_320px]">
       <div className="space-y-6">
-        <div>
-          <h1 className="text-2xl font-bold">Quanto esse resgate devolve por milheiro?</h1>
-          <p className="text-muted-foreground">
-            O valor por mil no resgate é o teto do que faz sentido pagar por
-            aquele ponto — compare com o preço-alvo de compra do programa.
-          </p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold">Quanto esse resgate devolve por milheiro?</h1>
+            <p className="text-muted-foreground">
+              O valor por mil no resgate é o teto do que faz sentido pagar por
+              aquele ponto — compare com o preço-alvo de compra do programa.
+            </p>
+          </div>
+          <ComoUtilizar conteudo={comoUtilizar.resgate} />
         </div>
 
         <Card>

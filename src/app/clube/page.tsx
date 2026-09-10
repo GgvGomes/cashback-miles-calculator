@@ -9,6 +9,8 @@ import { SeletorPrograma } from "@/components/calc/SeletorPrograma";
 import { ResultadoCard } from "@/components/calc/ResultadoCard";
 import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
+import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
+import { comoUtilizar } from "@/data/como-utilizar";
 import { cpmComAdesao, custoOportunidade, vereditoClube } from "@/lib/calc/clube";
 import { cpmEfetivo } from "@/lib/calc/cpm";
 import { formatBRL, formatPts } from "@/lib/calc/format";
@@ -80,12 +82,15 @@ export default function ClubePage() {
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_320px]">
       <div className="space-y-6">
-        <div>
-          <h1 className="text-2xl font-bold">Vale assinar o clube?</h1>
-          <p className="text-muted-foreground">
-            Assine só se o CPM efetivo (depois do bônus de transferência) ficar
-            no máximo em 80% do que o seu resgate devolve.
-          </p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold">Vale assinar o clube?</h1>
+            <p className="text-muted-foreground">
+              Assine só se o CPM efetivo (depois do bônus de transferência) ficar
+              no máximo em 80% do que o seu resgate devolve.
+            </p>
+          </div>
+          <ComoUtilizar conteudo={comoUtilizar.clube} />
         </div>
 
         <Card>

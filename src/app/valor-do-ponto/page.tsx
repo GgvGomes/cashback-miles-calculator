@@ -7,6 +7,8 @@ import { CampoPontos } from "@/components/calc/CampoPontos";
 import { ResultadoCard } from "@/components/calc/ResultadoCard";
 import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
+import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
+import { comoUtilizar } from "@/data/como-utilizar";
 import { valorPorMil, valorPorPonto, razaoRetorno, vereditoResgate } from "@/lib/calc/resgate";
 import { formatBRL, formatPts } from "@/lib/calc/format";
 import { usePersistedState } from "@/hooks/usePersistedState";
@@ -42,12 +44,15 @@ export default function ValorDoPontoPage() {
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_320px]">
       <div className="space-y-6">
-        <div>
-          <h1 className="text-2xl font-bold">Quanto vale o seu ponto nesse resgate?</h1>
-          <p className="text-muted-foreground">
-            Compare o que o resgate devolve com o que você pagou pelo ponto —
-            é essa razão que decide se emitir vale a pena.
-          </p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold">Quanto vale o seu ponto nesse resgate?</h1>
+            <p className="text-muted-foreground">
+              Compare o que o resgate devolve com o que você pagou pelo ponto —
+              é essa razão que decide se emitir vale a pena.
+            </p>
+          </div>
+          <ComoUtilizar conteudo={comoUtilizar.valorDoPonto} />
         </div>
 
         <Card>
