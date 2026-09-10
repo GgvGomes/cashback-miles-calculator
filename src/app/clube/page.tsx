@@ -86,8 +86,9 @@ export default function ClubePage() {
           <div>
             <h1 className="text-2xl font-bold">Vale assinar o clube?</h1>
             <p className="text-muted-foreground">
-              Assine só se o CPM efetivo (depois do bônus de transferência) ficar
-              no máximo em 80% do que o seu resgate devolve.
+              Assine só se o CPM efetivo (custo por mil pontos, depois do
+              bônus de transferência) ficar no máximo em 80% do que o seu
+              resgate devolve.
             </p>
           </div>
           <ComoUtilizar conteudo={comoUtilizar.clube} />
@@ -130,7 +131,7 @@ export default function ClubePage() {
                 value={inputs.bonusTransferencia * 100}
                 onChange={(v) => set("bonusTransferencia", v / 100)}
                 unidade="%"
-                helpText="Só vale para coalizão (Livelo/Esfera) — 06:277-279."
+                helpText="Só vale para clube de coalizão (Livelo/Esfera), que transfere pontos para parceiros aéreos."
               />
             ) : (
               <div className="rounded-md border border-veredito-limite/30 bg-veredito-limite-bg p-3 text-sm text-veredito-limite sm:col-span-1">

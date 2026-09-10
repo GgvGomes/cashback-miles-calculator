@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Compensa? — Calculadora de pontos, milhas e cashback",
+  },
+  description:
+    "Seis calculadoras gratuitas para saber se vale comprar, transferir ou resgatar pontos e milhas — com a conta e a fonte de cada número sempre à mostra.",
+};
 
 const CALCULADORAS = [
   {

@@ -66,8 +66,8 @@ export default function CompraDePontosPage() {
           <div>
             <h1 className="text-2xl font-bold">Essa compra de pontos vale o preço?</h1>
             <p className="text-muted-foreground">
-              Todo CPM na mesma régua — compra avulsa, bonificada, ou já
-              transferida para a aérea com bônus.
+              Todo CPM (custo por mil pontos) na mesma régua — compra avulsa,
+              bonificada, ou já transferida para a aérea com bônus.
             </p>
           </div>
           <ComoUtilizar conteudo={comoUtilizar.compraDePontos} />

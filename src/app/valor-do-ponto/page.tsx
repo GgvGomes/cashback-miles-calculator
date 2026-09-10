@@ -77,7 +77,7 @@ export default function ValorDoPontoPage() {
               onChange={(v) => set("pontos", v)}
             />
             <CampoMoeda
-              label="CPM que você pagou/pagaria pelo ponto"
+              label="CPM (custo por mil pontos) que você pagou/pagaria"
               value={inputs.cpmPago}
               onChange={(v) => set("cpmPago", v)}
               helpText="Preço-alvo de compra do programa, ou o que você realmente pagou."

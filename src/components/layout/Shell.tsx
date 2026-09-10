@@ -9,7 +9,9 @@ export function Shell({ children }: { children: React.ReactNode }) {
       </main>
       <footer className="border-t border-border/80">
         <p className="mx-auto max-w-5xl px-4 py-6 text-xs text-muted-foreground">
-          Números conferidos em 2026-08. Confira na fonte oficial antes de agir.
+          Cada resultado mostra a fonte e a data em que o número foi
+          conferido. Confira sempre no site oficial do programa antes de
+          decidir.
         </p>
       </footer>
     </div>

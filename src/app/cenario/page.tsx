@@ -84,7 +84,8 @@ export default function CenarioPage() {
             <h1 className="text-2xl font-bold">Somando tudo, o cenário compensa?</h1>
             <p className="text-muted-foreground">
               Empilhe compra, clube, transferência e gasto bonificado num CPM
-              único — e veja qual passo estraga a conta.
+              (custo por mil pontos) único — e veja qual passo estraga a
+              conta.
             </p>
           </div>
           <ComoUtilizar conteudo={comoUtilizar.cenario} />
