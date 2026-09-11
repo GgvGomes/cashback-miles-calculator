@@ -62,8 +62,8 @@ export default function CompraDePontosPage() {
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_320px]">
       <div className="space-y-6">
-        <div className="flex items-start justify-between gap-4">
-          <div>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div className="min-w-0 flex-1">
             <h1 className="text-2xl font-bold">Essa compra de pontos vale o preço?</h1>
             <p className="text-muted-foreground">
               Todo CPM (custo por mil pontos) na mesma régua — compra avulsa,

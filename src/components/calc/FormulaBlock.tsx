@@ -16,7 +16,12 @@ export function FormulaBlock({
           {titulo}
         </p>
       ) : null}
-      <pre className="overflow-x-auto text-xs leading-relaxed whitespace-pre">
+      <pre
+        tabIndex={0}
+        role="region"
+        aria-label="Fórmula com rolagem horizontal"
+        className="overflow-x-auto text-xs leading-relaxed whitespace-pre focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+      >
         {linhas.join("\n")}
       </pre>
     </div>

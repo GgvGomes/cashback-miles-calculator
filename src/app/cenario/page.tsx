@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -37,6 +38,8 @@ const TIPOS: { value: TipoStep; label: string }[] = [
 ];
 
 export default function CenarioPage() {
+  const tipoId = useId();
+  const descricaoId = useId();
   const [steps, setSteps] = usePersistedState<Step[]>("cenario-steps", []);
   const [valorDeUso, setValorDeUso] = usePersistedState<number>(
     "cenario-valor-de-uso",
@@ -79,8 +82,8 @@ export default function CenarioPage() {
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_320px]">
       <div className="space-y-6">
-        <div className="flex items-start justify-between gap-4">
-          <div>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div className="min-w-0 flex-1">
             <h1 className="text-2xl font-bold">Somando tudo, o cenário compensa?</h1>
             <p className="text-muted-foreground">
               Empilhe compra, clube, transferência e gasto bonificado num CPM
@@ -97,9 +100,9 @@ export default function CenarioPage() {
           </CardHeader>
           <CardContent className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-1.5 sm:col-span-2">
-              <label className="text-sm font-medium">Tipo</label>
+              <label htmlFor={tipoId} className="text-sm font-medium">Tipo</label>
               <Select value={novoTipo} onValueChange={(v) => setNovoTipo(v as TipoStep)}>
-                <SelectTrigger className="w-full">
+                <SelectTrigger id={tipoId} className="w-full">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -112,9 +115,9 @@ export default function CenarioPage() {
               </Select>
             </div>
             <div className="space-y-1.5 sm:col-span-2">
-              <label className="text-sm font-medium">Descrição</label>
-              <input
-                className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 py-1 text-base outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 md:text-sm"
+              <label htmlFor={descricaoId} className="text-sm font-medium">Descrição</label>
+              <Input
+                id={descricaoId}
                 value={novoLabel}
                 onChange={(e) => setNovoLabel(e.target.value)}
                 placeholder="Ex.: Compra Livelo em promoção"
@@ -149,16 +152,16 @@ export default function CenarioPage() {
               steps.map((s, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-between gap-3 rounded-md border p-3"
+                  className="flex flex-wrap items-center justify-between gap-3 rounded-md border p-3"
                 >
-                  <div>
-                    <p className="text-sm font-medium">{s.label}</p>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium break-words">{s.label}</p>
                     <p className="text-xs text-muted-foreground">
                       {formatBRL(s.custoBRL)} · {formatPts(s.pontosGerados)} pts
                       · CPM acumulado até aqui: {formatBRL(resultado.acumulados[i] ?? 0)}
                     </p>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex shrink-0 items-center gap-2">
                     <Badge variant="secondary">{s.tipo}</Badge>
                     <Button variant="ghost" size="sm" onClick={() => removerStep(i)}>
                       Remover

@@ -17,7 +17,7 @@ export function ThemeToggle() {
   );
 
   if (!montado) {
-    return <div className="size-8" aria-hidden />;
+    return <div className="size-11" aria-hidden />;
   }
 
   const escuro = resolvedTheme === "dark";

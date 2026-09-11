@@ -27,29 +27,35 @@ export function TabNav() {
           Compensa<span className="text-primary">?</span>
         </Link>
 
-        <nav
-          aria-label="Calculadoras"
-          className="flex min-w-0 flex-1 gap-1 overflow-x-auto"
-        >
-          {ROTAS.map((rota) => {
-            const ativo = pathname === rota.href;
-            return (
-              <Link
-                key={rota.href}
-                href={rota.href}
-                aria-current={ativo ? "page" : undefined}
-                className={cn(
-                  "shrink-0 rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
-                  ativo
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                )}
-              >
-                {rota.label}
-              </Link>
-            );
-          })}
-        </nav>
+        <div className="relative min-w-0 flex-1">
+          <nav
+            aria-label="Calculadoras"
+            className="flex gap-1 overflow-x-auto"
+          >
+            {ROTAS.map((rota) => {
+              const ativo = pathname === rota.href;
+              return (
+                <Link
+                  key={rota.href}
+                  href={rota.href}
+                  aria-current={ativo ? "page" : undefined}
+                  className={cn(
+                    "shrink-0 rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
+                    ativo
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  )}
+                >
+                  {rota.label}
+                </Link>
+              );
+            })}
+          </nav>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-background to-transparent"
+          />
+        </div>
 
         <ThemeToggle />
       </div>

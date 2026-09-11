@@ -25,7 +25,7 @@ export function ResultadoCard({
   return (
     <Card
       className={cn(
-        "sticky bottom-0 md:top-20 md:bottom-auto",
+        "sticky bottom-[env(safe-area-inset-bottom)] z-20 md:top-20 md:bottom-auto",
         className
       )}
     >
