@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 
 const SITE_URL = "https://cashback-miles-calculator.vercel.app";
 
+const ULTIMA_ATUALIZACAO = new Date("2026-09-18");
+
 const ROTAS = [
   "",
   "/valor-do-ponto",
@@ -16,7 +18,7 @@ const ROTAS = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return ROTAS.map((rota) => ({
     url: `${SITE_URL}${rota}`,
-    lastModified: new Date(),
+    lastModified: ULTIMA_ATUALIZACAO,
     changeFrequency: "monthly",
     priority: rota === "" ? 1 : 0.8,
   }));

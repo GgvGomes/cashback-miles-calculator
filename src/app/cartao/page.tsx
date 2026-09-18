@@ -9,6 +9,8 @@ import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
 import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
 import { comoUtilizar } from "@/data/como-utilizar";
+import { ConteudoSeo } from "@/components/calc/ConteudoSeo";
+import { seoConteudo } from "@/data/seo";
 import { ganhoFloat, valorPresenteParcelas } from "@/lib/calc/credito";
 import { retornoAnualCartao } from "@/lib/calc/cashback";
 import { formatBRL } from "@/lib/calc/format";
@@ -138,6 +140,8 @@ export default function CartaoPage() {
           fonte="02-credito.md (float, retorno de recompensa, parcelado × PIX)"
           consultadoEm="2026-08-18"
         />
+
+        <ConteudoSeo conteudo={seoConteudo.cartao} />
       </div>
 
       <ResultadoCard

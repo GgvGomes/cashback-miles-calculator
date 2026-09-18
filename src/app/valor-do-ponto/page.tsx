@@ -9,6 +9,8 @@ import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
 import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
 import { comoUtilizar } from "@/data/como-utilizar";
+import { ConteudoSeo } from "@/components/calc/ConteudoSeo";
+import { seoConteudo } from "@/data/seo";
 import { valorPorMil, valorPorPonto, razaoRetorno, vereditoResgate } from "@/lib/calc/resgate";
 import { formatBRL, formatPts } from "@/lib/calc/format";
 import { usePersistedState } from "@/hooks/usePersistedState";
@@ -98,6 +100,8 @@ export default function ValorDoPontoPage() {
           fonte="05-usar-maximizar.md (fórmula do valor por ponto e régua de decisão)"
           consultadoEm="2026-08-18"
         />
+
+        <ConteudoSeo conteudo={seoConteudo.valorDoPonto} />
       </div>
 
       <ResultadoCard

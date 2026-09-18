@@ -10,6 +10,8 @@ import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
 import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
 import { comoUtilizar } from "@/data/como-utilizar";
+import { ConteudoSeo } from "@/components/calc/ConteudoSeo";
+import { seoConteudo } from "@/data/seo";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { cpm, cpmEfetivo, classificaCPM } from "@/lib/calc/cpm";
@@ -145,6 +147,8 @@ export default function CompraDePontosPage() {
           fonte="04-acumulo-pontos.md (fórmula do CPM e régua por programa)"
           consultadoEm="2026-08-18"
         />
+
+        <ConteudoSeo conteudo={seoConteudo.compraDePontos} />
       </div>
 
       <ResultadoCard

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Valor do ponto",
+  alternates: { canonical: "/valor-do-ponto" },
+  title: "Calculadora de Valor do Ponto e da Milha",
   description:
-    "Descubra quanto o seu ponto ou milha realmente valeu num resgate específico — compare o preço da passagem em dinheiro com o CPM pago e veja a razão de retorno.",
+    "Calculadora de valor do ponto: descubra quanto a sua milha valeu num resgate. Compare o preço da passagem em dinheiro com o CPM pago e veja se emitir compensa.",
 };
 
 export default function ValorDoPontoLayout({

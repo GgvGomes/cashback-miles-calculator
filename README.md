@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Compensa? — Calculadora de pontos e milhas
 
-## Getting Started
+**🔗 https://cashback-miles-calculator.vercel.app**
 
-First, run the development server:
+Calculadora de pontos, milhas e cashback, grátis e sem cadastro. Seis contas que
+respondem "compensa?" com a fórmula, a fonte e a data de cada número à mostra:
+
+| Calculadora | Pergunta que responde |
+|---|---|
+| [Valor do ponto](https://cashback-miles-calculator.vercel.app/valor-do-ponto) | Quanto a milha valeu nesse resgate, comparada ao CPM pago? |
+| [Compra de pontos](https://cashback-miles-calculator.vercel.app/compra-de-pontos) | Comprar milhas (avulso, bonificado, com bônus de transferência) vale o preço? |
+| [Clube de pontos](https://cashback-miles-calculator.vercel.app/clube) | Assinar clube Livelo, Smiles, LATAM Pass ou TudoAzul compensa? |
+| [Resgate e emissão](https://cashback-miles-calculator.vercel.app/resgate) | Esse resgate devolve quanto por milheiro? Milhas ou dinheiro? |
+| [Cartão de crédito](https://cashback-miles-calculator.vercel.app/cartao) | A anuidade se paga com float + pontos/cashback? Parcelar ou à vista? |
+| [Cenário completo](https://cashback-miles-calculator.vercel.app/cenario) | Empilhando compra, clube e transferência, qual é o CPM combinado? |
+
+Também disponível como [servidor MCP](https://cashback-miles-calculator.vercel.app/mcp)
+para usar as calculadoras direto no Claude, ChatGPT ou Cursor.
+
+As fórmulas vêm do guia *Plano cashback, pontos e milhas* (Notion). Só técnicas
+legítimas — nada de brecha, multi-CPF ou burla de regra de programa.
+
+## Desenvolvimento
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm test           # vitest (fórmulas em src/lib/calc)
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next.js App Router + Tailwind + shadcn/ui. Deploy na Vercel.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Variáveis de ambiente
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Nome | Uso |
+|---|---|
+| `GOOGLE_SITE_VERIFICATION` | Token da meta tag `google-site-verification` do Search Console (opcional). |

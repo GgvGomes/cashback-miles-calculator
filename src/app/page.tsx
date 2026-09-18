@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ConteudoSeo } from "@/components/calc/ConteudoSeo";
+import { home } from "@/data/seo/home";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Compensa? — Calculadora de pontos, milhas e cashback",
+    absolute: "Calculadora de Pontos e Milhas Grátis — Compensa?",
   },
   description:
-    "Seis calculadoras gratuitas para saber se vale comprar, transferir ou resgatar pontos e milhas — com a conta e a fonte de cada número sempre à mostra.",
+    "Calculadora de pontos e milhas grátis: quanto vale o seu ponto, se compensa comprar milhas, assinar clube Livelo/Smiles/LATAM Pass ou pagar anuidade de cartão. Conta aberta, fonte e data em cada número.",
+  alternates: { canonical: "/" },
 };
 
 const CALCULADORAS = [
@@ -48,12 +51,13 @@ export default function Home() {
     <div className="space-y-8">
       <div className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">
-          Esse ponto compensa?
+          Calculadora de pontos e milhas: esse ponto compensa?
         </h1>
         <p className="max-w-2xl text-muted-foreground">
-          Seis calculadoras que executam as fórmulas do guia de pontos, milhas
-          e cashback, com as contas e as fontes sempre à mostra, nunca uma
-          caixa-preta.
+          Seis calculadoras gratuitas para saber se vale comprar, transferir
+          ou resgatar pontos e milhas, assinar clube ou pagar anuidade de
+          cartão — com a conta e a fonte de cada número sempre à mostra,
+          nunca uma caixa-preta.
         </p>
       </div>
 
@@ -86,6 +90,8 @@ export default function Home() {
           </CardContent>
         </Card>
       </Link>
+
+      <ConteudoSeo conteudo={home} />
     </div>
   );
 }

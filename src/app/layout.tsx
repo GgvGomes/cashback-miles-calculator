@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 const SITE_URL = "https://cashback-miles-calculator.vercel.app";
-const TITULO = "Compensa? — Calculadora de pontos, milhas e cashback";
+const TITULO = "Calculadora de Pontos e Milhas Grátis — Compensa?";
 const DESCRICAO =
-  "Seis calculadoras que executam as fórmulas do guia de pontos, milhas e cashback, com as contas e as fontes sempre à mostra, nunca uma caixa-preta.";
+  "Calculadora de pontos e milhas grátis: descubra quanto vale o seu ponto, se compensa comprar milhas, assinar clube Livelo/Smiles/LATAM Pass ou pagar anuidade de cartão. Conta aberta, fonte e data em cada número.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -27,13 +27,23 @@ export const metadata: Metadata = {
   },
   description: DESCRICAO,
   keywords: [
-    "pontos",
-    "milhas",
-    "cashback",
-    "compra de pontos",
-    "clube de assinatura",
+    "calculadora de pontos e milhas",
     "calculadora de milhas",
+    "valor do ponto",
+    "valor da milha",
+    "quanto vale o milheiro",
+    "CPM custo por milheiro",
+    "compra de pontos",
+    "clube de pontos",
+    "clube Livelo",
+    "clube Smiles",
+    "bônus de transferência",
+    "cashback ou pontos",
+    "anuidade de cartão vale a pena",
   ],
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
   openGraph: {
     type: "website",
     locale: "pt_BR",
@@ -62,18 +72,31 @@ export const viewport: Viewport = {
 
 const JSON_LD = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Compensa?",
-  url: SITE_URL,
-  description: DESCRICAO,
-  applicationCategory: "FinanceApplication",
-  operatingSystem: "Web",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "BRL",
-  },
-  inLanguage: "pt-BR",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: "Compensa? — Calculadora de pontos e milhas",
+      alternateName: "Compensa?",
+      url: SITE_URL,
+      inLanguage: "pt-BR",
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "Compensa? — Calculadora de pontos e milhas",
+      url: SITE_URL,
+      description: DESCRICAO,
+      applicationCategory: "FinanceApplication",
+      operatingSystem: "Web",
+      isAccessibleForFree: true,
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "BRL",
+      },
+      inLanguage: "pt-BR",
+    },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

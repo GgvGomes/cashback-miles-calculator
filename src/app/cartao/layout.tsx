@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cartão de crédito",
+  alternates: { canonical: "/cartao" },
+  title: "Calculadora de Cartão de Crédito: Anuidade, Pontos ou Cashback",
   description:
-    "O cartão compensa a anuidade? Some float e recompensa, compare com o custo da anuidade, e veja se vale parcelar sem juros ou pagar à vista com desconto.",
+    "A anuidade do cartão compensa? Some float e recompensa em pontos ou cashback, compare com o custo da anuidade e veja se vale parcelar sem juros ou pagar à vista.",
 };
 
 export default function CartaoLayout({

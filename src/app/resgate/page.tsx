@@ -9,6 +9,8 @@ import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
 import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
 import { comoUtilizar } from "@/data/como-utilizar";
+import { ConteudoSeo } from "@/components/calc/ConteudoSeo";
+import { seoConteudo } from "@/data/seo";
 import { valorPorMil } from "@/lib/calc/resgate";
 import { formatBRL, formatPts } from "@/lib/calc/format";
 import { usePersistedState } from "@/hooks/usePersistedState";
@@ -98,6 +100,8 @@ export default function ResgatePage() {
           fonte="06-clubes-calculadora.md / 05-usar-maximizar.md (valor por mil no resgate)"
           consultadoEm="2026-08-18"
         />
+
+        <ConteudoSeo conteudo={seoConteudo.resgate} />
       </div>
 
       <ResultadoCard

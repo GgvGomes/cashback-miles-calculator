@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Compra de pontos",
+  alternates: { canonical: "/compra-de-pontos" },
+  title: "Calculadora de Compra de Pontos e Milhas (CPM)",
   description:
-    "Essa compra avulsa, bonificada ou transferida entre programas vale o preço pedido? Calcule o CPM efetivo e compare com a régua de cada programa.",
+    "Comprar milhas vale a pena? Calcule o CPM efetivo da compra avulsa, bonificada ou com bônus de transferência e compare com a régua de cada programa.",
 };
 
 export default function CompraDePontosLayout({

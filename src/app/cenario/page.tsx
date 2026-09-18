@@ -18,6 +18,8 @@ import { ResultadoCard } from "@/components/calc/ResultadoCard";
 import { FonteNota } from "@/components/calc/FonteNota";
 import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
 import { comoUtilizar } from "@/data/como-utilizar";
+import { ConteudoSeo } from "@/components/calc/ConteudoSeo";
+import { seoConteudo } from "@/data/seo";
 import {
   totalCusto,
   totalPontos,
@@ -191,6 +193,8 @@ export default function CenarioPage() {
           fonte="Regra de corte do clube (06-clubes-calculadora.md), aplicada ao CPM combinado do cenário"
           consultadoEm="2026-08-18"
         />
+
+        <ConteudoSeo conteudo={seoConteudo.cenario} />
       </div>
 
       <ResultadoCard

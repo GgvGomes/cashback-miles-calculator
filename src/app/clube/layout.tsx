@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Clube de assinatura",
+  alternates: { canonical: "/clube" },
+  title: "Calculadora de Clube de Pontos (Livelo, Smiles, LATAM)",
   description:
-    "Vale assinar o clube de pontos? Some mensalidade, bônus de adesão, transferência e carência, e veja se o CPM efetivo fica abaixo do que você usaria.",
+    "Clube de pontos vale a pena? Calcule o CPM efetivo da assinatura com bônus de transferência e aplique a regra de corte antes de assinar Livelo, Smiles, LATAM Pass ou TudoAzul.",
 };
 
 export default function ClubeLayout({

@@ -11,6 +11,8 @@ import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
 import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
 import { comoUtilizar } from "@/data/como-utilizar";
+import { ConteudoSeo } from "@/components/calc/ConteudoSeo";
+import { seoConteudo } from "@/data/seo";
 import { cpmComAdesao, custoOportunidade, vereditoClube } from "@/lib/calc/clube";
 import { cpmEfetivo } from "@/lib/calc/cpm";
 import { formatBRL, formatPts } from "@/lib/calc/format";
@@ -183,6 +185,8 @@ export default function ClubePage() {
           fonte="Tabela oficial do programa + regra de corte do guia (06-clubes-calculadora.md)"
           consultadoEm="2026-08-18"
         />
+
+        <ConteudoSeo conteudo={seoConteudo.clube} />
       </div>
 
       <ResultadoCard
