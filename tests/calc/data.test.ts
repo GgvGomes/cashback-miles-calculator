@@ -4,6 +4,7 @@ import { programas } from "@/data/programas";
 import { clubes } from "@/data/clubes";
 import { plataformasCashback, cartoesCashback } from "@/data/cashback";
 import { campanhasBonus } from "@/data/bonus-historico";
+import { mcpDocs } from "@/data/mcp-docs";
 
 /**
  * Todo registro exibido no app carrega fonte + data (regra de ouro do CLAUDE.md
@@ -45,5 +46,9 @@ describe("todo registro de src/data tem fonte + consultadoEm", () => {
 
   it("campanhas de bônus histórico", () => {
     verificaFonteEData(campanhasBonus, "bonus-historico.ts");
+  });
+
+  it("documentação do MCP", () => {
+    verificaFonteEData([mcpDocs], "mcp-docs.ts");
   });
 });

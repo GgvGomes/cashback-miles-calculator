@@ -16,6 +16,7 @@ const ROTAS = [
   { href: "/resgate", label: "Resgate" },
   { href: "/cartao", label: "Cartão" },
   { href: "/cenario", label: "Cenário" },
+  { href: "/mcp", label: "IA (MCP)" },
 ];
 
 function itemClasses(ativo: boolean, extra?: string) {

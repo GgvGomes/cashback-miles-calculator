@@ -10,6 +10,7 @@ const ROTAS = [
   "/resgate",
   "/cartao",
   "/cenario",
+  "/mcp",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

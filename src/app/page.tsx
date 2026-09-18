@@ -71,6 +71,21 @@ export default function Home() {
           </Link>
         ))}
       </div>
+
+      <Link href="/mcp" className="block">
+        <Card className="border-dashed border-border/80 transition-colors hover:border-primary/40 hover:shadow-sm">
+          <CardHeader>
+            <CardTitle>Usar pelo seu assistente de IA</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Conecte as calculadoras ao Claude, ChatGPT ou Cursor via MCP: o
+              assistente pergunta o que falta, roda a conta aqui e escreve um
+              feedback personalizado para o seu cenário.
+            </p>
+          </CardContent>
+        </Card>
+      </Link>
     </div>
   );
 }
