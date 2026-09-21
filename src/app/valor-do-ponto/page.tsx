@@ -8,6 +8,7 @@ import { ResultadoCard } from "@/components/calc/ResultadoCard";
 import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
 import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
+import { AdSlot } from "@/components/ads/AdSlot";
 import { comoUtilizar } from "@/data/como-utilizar";
 import { ConteudoSeo } from "@/components/calc/ConteudoSeo";
 import { seoConteudo } from "@/data/seo";
@@ -45,7 +46,7 @@ export default function ValorDoPontoPage() {
 
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_320px]">
-      <div className="space-y-6">
+      <div className="min-w-0 space-y-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
             <h1 className="text-2xl font-bold">Quanto vale o seu ponto nesse resgate?</h1>
@@ -102,22 +103,28 @@ export default function ValorDoPontoPage() {
         />
 
         <ConteudoSeo conteudo={seoConteudo.valorDoPonto} />
+
+        <AdSlot posicao="conteudo" />
       </div>
 
-      <ResultadoCard
-        titulo="Razão de retorno"
-        valorFormatado={`${resultado.razao.toFixed(2)}×`}
-        veredito={resultado.veredito}
-        porque={
-          resultado.razao > 4
-            ? "Sweet spot: acima de 4×, emita e não fique procurando melhor."
-            : resultado.razao > 2
-              ? "Bom resgate: acima de 2× justifica todo o trabalho de acumular."
-              : resultado.razao >= 1.3
-                ? "Aceitável: emita se a viagem já estava decidida."
-                : "Abaixo de 1,3×: você entregaria o ponto quase de graça. Guarde o saldo."
-        }
-      />
+      <div className="contents md:sticky md:top-20 md:block md:self-start md:space-y-6">
+        <ResultadoCard
+          titulo="Razão de retorno"
+          valorFormatado={`${resultado.razao.toFixed(2)}×`}
+          veredito={resultado.veredito}
+          porque={
+            resultado.razao > 4
+              ? "Sweet spot: acima de 4×, emita e não fique procurando melhor."
+              : resultado.razao > 2
+                ? "Bom resgate: acima de 2× justifica todo o trabalho de acumular."
+                : resultado.razao >= 1.3
+                  ? "Aceitável: emita se a viagem já estava decidida."
+                  : "Abaixo de 1,3×: você entregaria o ponto quase de graça. Guarde o saldo."
+          }
+        />
+
+        <AdSlot posicao="sidebar" className="hidden md:block" />
+      </div>
     </div>
   );
 }

@@ -36,3 +36,44 @@ Next.js App Router + Tailwind + shadcn/ui. Deploy na Vercel.
 | Nome | Uso |
 |---|---|
 | `GOOGLE_SITE_VERIFICATION` | Token da meta tag `google-site-verification` do Search Console (opcional). |
+| `NEXT_PUBLIC_SITE_URL` | URL pública, sem barra final. Padrão: `https://cashback-miles-calculator.vercel.app`. Trocar ao apontar domínio próprio (metadata, sitemap, robots, OG image e MCP seguem). |
+| `NEXT_PUBLIC_ADSENSE_CLIENT` | Publisher id do AdSense (`ca-pub-…`). Sem ele nenhum anúncio nem script entra no build. |
+| `NEXT_PUBLIC_ADSENSE_SLOT_CONTEUDO` | Id da unidade "display responsivo" exibida abaixo da conta em cada calculadora. |
+| `NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR` | Id da unidade da coluna direita (só desktop, abaixo do resultado). |
+| `NEXT_PUBLIC_ADSENSE_SLOT_RODAPE` | Id da unidade do fim da página na home e em `/mcp`. |
+| `NEXT_PUBLIC_ADS_PLACEHOLDER` | `1` desenha uma caixa tracejada no lugar de cada anúncio para validar layout localmente. |
+
+## Anúncios (Google AdSense)
+
+Slots manuais com altura reservada (zero CLS), longe dos inputs, no máximo 2 por
+calculadora (1 no mobile). Auto ads ficam **desligados** no painel. Nenhuma
+página institucional (`/sobre`, `/privacidade`, `/termos`, `/contato`) tem anúncio.
+
+Onde cada slot aparece:
+
+| Posição | Onde | Mobile |
+|---|---|---|
+| `conteudo` | fim da coluna esquerda das 6 calculadoras, depois do texto explicativo | sim |
+| `sidebar` | coluna direita, abaixo do card de resultado (wrapper sticky) | não (`hidden md:block`) |
+| `rodape` | fim da home e antes de "Limites" em `/mcp` | sim |
+
+Passo a passo no painel (uma vez):
+
+1. **Conta** — crie a conta em adsense.google.com com o e-mail do site e adicione
+   o site (`NEXT_PUBLIC_SITE_URL`). ⚠️ Subdomínio `*.vercel.app` costuma ser
+   recusado como "site não pertence a você"; domínio próprio resolve.
+2. **Verificação** — escolha "meta tag": basta setar `NEXT_PUBLIC_ADSENSE_CLIENT`
+   na Vercel e redeployar; a tag `google-adsense-account` entra no `<head>`.
+   Confira também `https://<site>/ads.txt` (gerado do mesmo env).
+3. **Privacidade e mensagens** — crie a mensagem de consentimento GDPR (e a de
+   estados dos EUA, se quiser). O script do AdSense já entrega a CMP; nada a
+   codar. A política em `/privacidade` já cita cookies, DoubleClick e opt-out.
+4. **Unidades** — Anúncios → Por unidade → "Display", tamanho *responsivo*.
+   Crie três (conteúdo, sidebar, rodapé) e copie os `data-ad-slot` para
+   `NEXT_PUBLIC_ADSENSE_SLOT_*`.
+5. **Auto ads** — Anúncios → Por site → deixe **desligado** (senão o Google
+   injeta âncora/vignette por cima do card de resultado sticky do mobile).
+6. Redeploy. Enquanto a revisão do site não termina, os slots ficam em branco
+   com a altura reservada — comportamento esperado.
+
+Validar layout sem conta: `NEXT_PUBLIC_ADS_PLACEHOLDER=1 npm run dev`.

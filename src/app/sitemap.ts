@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://cashback-miles-calculator.vercel.app";
+import { SITE_URL } from "@/data/site";
 
 const ULTIMA_ATUALIZACAO = new Date("2026-09-18");
 
@@ -13,13 +13,19 @@ const ROTAS = [
   "/cartao",
   "/cenario",
   "/mcp",
+  "/sobre",
+  "/privacidade",
+  "/termos",
+  "/contato",
 ];
+
+const INSTITUCIONAIS = new Set(["/sobre", "/privacidade", "/termos", "/contato"]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return ROTAS.map((rota) => ({
     url: `${SITE_URL}${rota}`,
     lastModified: ULTIMA_ATUALIZACAO,
     changeFrequency: "monthly",
-    priority: rota === "" ? 1 : 0.8,
+    priority: rota === "" ? 1 : INSTITUCIONAIS.has(rota) ? 0.3 : 0.8,
   }));
 }

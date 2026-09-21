@@ -4,6 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
 import { MCP_URL, mcpDocs } from "@/data/mcp-docs";
+import { AdSlot } from "@/components/ads/AdSlot";
 
 function Secao({ id, titulo, children }: { id: string; titulo: string; children: React.ReactNode }) {
   return (
@@ -122,6 +123,8 @@ export default function McpPage() {
           ))}
         </div>
       </Secao>
+
+      <AdSlot posicao="rodape" />
 
       <Secao id="limites" titulo="Limites e avisos">
         <ul className="max-w-2xl list-disc space-y-2 pl-5 text-sm">

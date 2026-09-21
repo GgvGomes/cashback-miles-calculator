@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { SITE_URL } from "@/data/site";
 
 export const alt = "Compensa? — Calculadora de pontos e milhas grátis";
 export const size = { width: 1200, height: 630 };
@@ -21,7 +22,7 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ display: "flex", fontSize: 28, color: "#9fb0cc" }}>
-          cashback-miles-calculator.vercel.app
+          {SITE_URL.replace(/^https?:\/\//, "")}
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <div style={{ display: "flex", fontSize: 76, fontWeight: 700, lineHeight: 1.05 }}>

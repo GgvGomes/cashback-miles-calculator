@@ -17,6 +17,7 @@ import { CampoPontos } from "@/components/calc/CampoPontos";
 import { ResultadoCard } from "@/components/calc/ResultadoCard";
 import { FonteNota } from "@/components/calc/FonteNota";
 import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
+import { AdSlot } from "@/components/ads/AdSlot";
 import { comoUtilizar } from "@/data/como-utilizar";
 import { ConteudoSeo } from "@/components/calc/ConteudoSeo";
 import { seoConteudo } from "@/data/seo";
@@ -83,7 +84,7 @@ export default function CenarioPage() {
 
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_320px]">
-      <div className="space-y-6">
+      <div className="min-w-0 space-y-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
             <h1 className="text-2xl font-bold">Somando tudo, o cenário compensa?</h1>
@@ -195,14 +196,20 @@ export default function CenarioPage() {
         />
 
         <ConteudoSeo conteudo={seoConteudo.cenario} />
+
+        <AdSlot posicao="conteudo" />
       </div>
 
-      <ResultadoCard
-        titulo={`CPM combinado (${formatPts(resultado.pontos)} pts, ${formatBRL(resultado.custo)})`}
-        valorFormatado={formatBRL(resultado.cpm)}
-        veredito={resultado.veredito}
-        porque={`Comparado contra ${formatBRL(valorDeUso)}/mil × 80% = ${formatBRL(valorDeUso * 0.8)}/mil.`}
-      />
+      <div className="contents md:sticky md:top-20 md:block md:self-start md:space-y-6">
+        <ResultadoCard
+          titulo={`CPM combinado (${formatPts(resultado.pontos)} pts, ${formatBRL(resultado.custo)})`}
+          valorFormatado={formatBRL(resultado.cpm)}
+          veredito={resultado.veredito}
+          porque={`Comparado contra ${formatBRL(valorDeUso)}/mil × 80% = ${formatBRL(valorDeUso * 0.8)}/mil.`}
+        />
+
+        <AdSlot posicao="sidebar" className="hidden md:block" />
+      </div>
     </div>
   );
 }

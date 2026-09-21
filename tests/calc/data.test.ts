@@ -5,6 +5,7 @@ import { clubes } from "@/data/clubes";
 import { plataformasCashback, cartoesCashback } from "@/data/cashback";
 import { campanhasBonus } from "@/data/bonus-historico";
 import { mcpDocs } from "@/data/mcp-docs";
+import { paginasLegais } from "@/data/legal";
 
 /**
  * Todo registro exibido no app carrega fonte + data (regra de ouro do CLAUDE.md
@@ -50,5 +51,14 @@ describe("todo registro de src/data tem fonte + consultadoEm", () => {
 
   it("documentação do MCP", () => {
     verificaFonteEData([mcpDocs], "mcp-docs.ts");
+  });
+});
+
+describe("páginas institucionais", () => {
+  it("toda página tem data de atualização AAAA-MM-DD e ao menos uma seção", () => {
+    for (const p of paginasLegais) {
+      expect(p.atualizadoEm, p.rota).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(p.secoes.length, p.rota).toBeGreaterThan(0);
+    }
   });
 });

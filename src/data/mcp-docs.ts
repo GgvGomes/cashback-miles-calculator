@@ -3,8 +3,9 @@
  * de IA. Fonte da verdade do texto; a página só renderiza.
  */
 import { TOOLS } from "@/mcp/tools";
+import { SITE_URL } from "@/data/site";
 
-export const MCP_URL = "https://cashback-miles-calculator.vercel.app/api/mcp";
+export const MCP_URL = `${SITE_URL}/api/mcp`;
 export const MCP_NOME = "compensa";
 
 export interface ClienteMcp {

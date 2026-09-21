@@ -3,6 +3,7 @@
  * fonte e data — é isso que permite à IA cliente escrever um feedback
  * personalizado sem inventar regra.
  */
+import { SITE_URL } from "@/data/site";
 import { comoUtilizar, type ConteudoComoUtilizar } from "@/data/como-utilizar";
 import { programas, type Programa } from "@/data/programas";
 import { indicadores } from "@/data/indicadores";
@@ -36,7 +37,7 @@ export const ROTA_WEB: Record<ChaveCalculadora, string> = {
   cenario: "/cenario",
 };
 
-export const SITE_URL = "https://cashback-miles-calculator.vercel.app";
+export { SITE_URL };
 
 export function contextoDe(
   chave: ChaveCalculadora,

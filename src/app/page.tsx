@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ConteudoSeo } from "@/components/calc/ConteudoSeo";
+import { AdSlot } from "@/components/ads/AdSlot";
 import { home } from "@/data/seo/home";
 
 export const metadata: Metadata = {
@@ -92,6 +93,8 @@ export default function Home() {
       </Link>
 
       <ConteudoSeo conteudo={home} />
+
+      <AdSlot posicao="rodape" />
     </div>
   );
 }

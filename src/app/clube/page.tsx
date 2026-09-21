@@ -10,6 +10,7 @@ import { ResultadoCard } from "@/components/calc/ResultadoCard";
 import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
 import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
+import { AdSlot } from "@/components/ads/AdSlot";
 import { comoUtilizar } from "@/data/como-utilizar";
 import { ConteudoSeo } from "@/components/calc/ConteudoSeo";
 import { seoConteudo } from "@/data/seo";
@@ -83,7 +84,7 @@ export default function ClubePage() {
 
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_320px]">
-      <div className="space-y-6">
+      <div className="min-w-0 space-y-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
             <h1 className="text-2xl font-bold">Vale assinar o clube?</h1>
@@ -187,19 +188,25 @@ export default function ClubePage() {
         />
 
         <ConteudoSeo conteudo={seoConteudo.clube} />
+
+        <AdSlot posicao="conteudo" />
       </div>
 
-      <ResultadoCard
-        titulo="CPM efetivo"
-        valorFormatado={formatBRL(resultado.cpmEf)}
-        veredito={resultado.veredito}
-        porque={
-          resultado.veredito === "ok"
-            ? `Está dentro do teto de ${formatBRL(0.8 * resultado.valorPorMilResgate)} (80% do valor do seu resgate).`
-            : `Passa do teto de ${formatBRL(0.8 * resultado.valorPorMilResgate)} (80% do valor do seu resgate).`
-        }
-        acao={<Button className="w-full">Adicionar ao cenário</Button>}
-      />
+      <div className="contents md:sticky md:top-20 md:block md:self-start md:space-y-6">
+        <ResultadoCard
+          titulo="CPM efetivo"
+          valorFormatado={formatBRL(resultado.cpmEf)}
+          veredito={resultado.veredito}
+          porque={
+            resultado.veredito === "ok"
+              ? `Está dentro do teto de ${formatBRL(0.8 * resultado.valorPorMilResgate)} (80% do valor do seu resgate).`
+              : `Passa do teto de ${formatBRL(0.8 * resultado.valorPorMilResgate)} (80% do valor do seu resgate).`
+          }
+          acao={<Button className="w-full">Adicionar ao cenário</Button>}
+        />
+
+        <AdSlot posicao="sidebar" className="hidden md:block" />
+      </div>
     </div>
   );
 }

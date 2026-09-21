@@ -8,6 +8,7 @@ import { ResultadoCard } from "@/components/calc/ResultadoCard";
 import { FormulaBlock } from "@/components/calc/FormulaBlock";
 import { FonteNota } from "@/components/calc/FonteNota";
 import { ComoUtilizar } from "@/components/calc/ComoUtilizar";
+import { AdSlot } from "@/components/ads/AdSlot";
 import { comoUtilizar } from "@/data/como-utilizar";
 import { ConteudoSeo } from "@/components/calc/ConteudoSeo";
 import { seoConteudo } from "@/data/seo";
@@ -47,7 +48,7 @@ export default function ResgatePage() {
 
   return (
     <div className="grid gap-6 md:grid-cols-[1fr_320px]">
-      <div className="space-y-6">
+      <div className="min-w-0 space-y-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
             <h1 className="text-2xl font-bold">Quanto esse resgate devolve por milheiro?</h1>
@@ -102,14 +103,20 @@ export default function ResgatePage() {
         />
 
         <ConteudoSeo conteudo={seoConteudo.resgate} />
+
+        <AdSlot posicao="conteudo" />
       </div>
 
-      <ResultadoCard
-        titulo="Valor por mil no resgate"
-        valorFormatado={formatBRL(resultado.vpm)}
-        veredito={resultado.veredito}
-        porque={`Preço-alvo de referência: ${formatBRL(inputs.precoAlvoReferencia)}/mil.`}
-      />
+      <div className="contents md:sticky md:top-20 md:block md:self-start md:space-y-6">
+        <ResultadoCard
+          titulo="Valor por mil no resgate"
+          valorFormatado={formatBRL(resultado.vpm)}
+          veredito={resultado.veredito}
+          porque={`Preço-alvo de referência: ${formatBRL(inputs.precoAlvoReferencia)}/mil.`}
+        />
+
+        <AdSlot posicao="sidebar" className="hidden md:block" />
+      </div>
     </div>
   );
 }
