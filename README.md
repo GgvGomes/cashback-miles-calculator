@@ -37,7 +37,7 @@ Next.js App Router + Tailwind + shadcn/ui. Deploy na Vercel.
 |---|---|
 | `GOOGLE_SITE_VERIFICATION` | Token da meta tag `google-site-verification` do Search Console (opcional). |
 | `NEXT_PUBLIC_SITE_URL` | URL pública, sem barra final. Padrão: `https://cashback-miles-calculator.vercel.app`. Trocar ao apontar domínio próprio (metadata, sitemap, robots, OG image e MCP seguem). |
-| `NEXT_PUBLIC_ADSENSE_CLIENT` | Publisher id do AdSense (`ca-pub-…`). Sem ele nenhum anúncio nem script entra no build. |
+| `NEXT_PUBLIC_ADSENSE_CLIENT` | Sobrescreve o publisher id (`ca-pub-…`). O padrão está em `src/data/ads.ts`; o script global e o `ads.txt` saem sempre. |
 | `NEXT_PUBLIC_ADSENSE_SLOT_CONTEUDO` | Id da unidade "display responsivo" exibida abaixo da conta em cada calculadora. |
 | `NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR` | Id da unidade da coluna direita (só desktop, abaixo do resultado). |
 | `NEXT_PUBLIC_ADSENSE_SLOT_RODAPE` | Id da unidade do fim da página na home e em `/mcp`. |
@@ -62,9 +62,9 @@ Passo a passo no painel (uma vez):
 1. **Conta** — crie a conta em adsense.google.com com o e-mail do site e adicione
    o site (`NEXT_PUBLIC_SITE_URL`). ⚠️ Subdomínio `*.vercel.app` costuma ser
    recusado como "site não pertence a você"; domínio próprio resolve.
-2. **Verificação** — escolha "meta tag": basta setar `NEXT_PUBLIC_ADSENSE_CLIENT`
-   na Vercel e redeployar; a tag `google-adsense-account` entra no `<head>`.
-   Confira também `https://<site>/ads.txt` (gerado do mesmo env).
+2. **Verificação** — o snippet do AdSense e a meta `google-adsense-account` já
+   saem em toda página com o publisher de `src/data/ads.ts`; basta clicar em
+   "verificar". Confira também `https://<site>/ads.txt`.
 3. **Privacidade e mensagens** — crie a mensagem de consentimento GDPR (e a de
    estados dos EUA, se quiser). O script do AdSense já entrega a CMP; nada a
    codar. A política em `/privacidade` já cita cookies, DoubleClick e opt-out.
@@ -73,7 +73,8 @@ Passo a passo no painel (uma vez):
    `NEXT_PUBLIC_ADSENSE_SLOT_*`.
 5. **Auto ads** — Anúncios → Por site → deixe **desligado** (senão o Google
    injeta âncora/vignette por cima do card de resultado sticky do mobile).
-6. Redeploy. Enquanto a revisão do site não termina, os slots ficam em branco
+6. Redeploy. Enquanto os `SLOT_*` não existem, nenhuma unidade é renderizada
+   (só o script global); com slots e revisão pendente, o espaço fica em branco
    com a altura reservada — comportamento esperado.
 
 Validar layout sem conta: `NEXT_PUBLIC_ADS_PLACEHOLDER=1 npm run dev`.

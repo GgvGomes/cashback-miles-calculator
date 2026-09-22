@@ -1,8 +1,9 @@
 /**
- * Configuração dos anúncios (Google AdSense). Tudo vem de env `NEXT_PUBLIC_*`
- * para o mesmo build servir dev/preview (sem anúncio) e produção (com).
+ * Configuração dos anúncios (Google AdSense). O script global entra sempre
+ * (revisão do site); as unidades vêm de env `NEXT_PUBLIC_*`, então dev/preview
+ * sem env não mostram anúncio.
  *
- * - `NEXT_PUBLIC_ADSENSE_CLIENT`         "ca-pub-XXXXXXXXXXXXXXXX" (id do publisher)
+ * - `NEXT_PUBLIC_ADSENSE_CLIENT`         sobrescreve o id do publisher (padrão abaixo)
  * - `NEXT_PUBLIC_ADSENSE_SLOT_CONTEUDO`  unidade display abaixo da conta (calculadoras)
  * - `NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR`   unidade display na coluna direita (desktop)
  * - `NEXT_PUBLIC_ADSENSE_SLOT_RODAPE`    unidade display no fim da página (home, /mcp)
@@ -11,7 +12,9 @@
  * Auto ads ficam desligados no painel: só slots manuais, com altura reservada
  * (sem CLS) e longe dos inputs (política de cliques acidentais).
  */
-export const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "";
+/** Publisher id. Fixo no código (o AdSense exige a tag em todas as páginas
+ *  para revisar o site); env só sobrescreve. */
+export const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "ca-pub-4366681109860919";
 
 export const SLOTS = {
   conteudo: process.env.NEXT_PUBLIC_ADSENSE_SLOT_CONTEUDO ?? "",

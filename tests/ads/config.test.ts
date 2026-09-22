@@ -27,8 +27,11 @@ describe("config de anúncios", () => {
 });
 
 describe("rota /ads.txt", () => {
-  it("404 sem publisher configurado", async () => {
+  it("responde text/plain com a linha do publisher padrão", async () => {
     const { GET } = await import("@/app/ads.txt/route");
-    expect(GET().status).toBe(404);
+    const res = GET();
+    expect(res.status).toBe(200);
+    expect(res.headers.get("Content-Type")).toContain("text/plain");
+    expect(await res.text()).toBe("google.com, pub-4366681109860919, DIRECT, f08c47fec0942fa0\n");
   });
 });
