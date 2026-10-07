@@ -21,7 +21,8 @@ const ALTURA: Record<PosicaoAd, string> = {
 };
 
 export function AdSlot({ posicao, className }: { posicao: PosicaoAd; className?: string }) {
-  const slot = slotDe(posicao);
+  // placeholder tem prioridade: valida layout local sem pedir anúncio real
+  const slot = ADS_PLACEHOLDER ? null : slotDe(posicao);
   const enviado = useRef(false);
 
   useEffect(() => {

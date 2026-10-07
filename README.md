@@ -46,16 +46,20 @@ Next.js App Router + Tailwind + shadcn/ui. Deploy na Vercel.
 | `GOOGLE_SITE_VERIFICATION` | Token da meta tag `google-site-verification` do Search Console (opcional). |
 | `NEXT_PUBLIC_SITE_URL` | URL pública, sem barra final. Padrão: `https://cashback-miles-calculator.vercel.app`. Trocar ao apontar domínio próprio (metadata, sitemap, robots, OG image e MCP seguem). |
 | `NEXT_PUBLIC_ADSENSE_CLIENT` | Sobrescreve o publisher id (`ca-pub-…`). O padrão está em `src/data/ads.ts`; o script global e o `ads.txt` saem sempre. |
-| `NEXT_PUBLIC_ADSENSE_SLOT_CONTEUDO` | Id da unidade "display responsivo" exibida abaixo da conta em cada calculadora. |
-| `NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR` | Id da unidade da coluna direita (só desktop, abaixo do resultado). |
-| `NEXT_PUBLIC_ADSENSE_SLOT_RODAPE` | Id da unidade do fim da página na home e em `/mcp`. |
-| `NEXT_PUBLIC_ADS_PLACEHOLDER` | `1` desenha uma caixa tracejada no lugar de cada anúncio para validar layout localmente. |
+| `NEXT_PUBLIC_ADSENSE_SLOT_CONTEUDO` | Sobrescreve o id da unidade exibida abaixo da conta em cada calculadora (padrão em `src/data/ads.ts`). |
+| `NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR` | Sobrescreve o id da unidade da coluna direita (só desktop, abaixo do resultado). |
+| `NEXT_PUBLIC_ADSENSE_SLOT_RODAPE` | Sobrescreve o id da unidade do fim da página na home e em `/mcp`. |
+| `NEXT_PUBLIC_ADS_PLACEHOLDER` | `1` desenha uma caixa tracejada no lugar de cada anúncio (tem prioridade sobre os slots) para validar layout localmente. |
 
 ## Anúncios (Google AdSense)
 
-Slots manuais com altura reservada (zero CLS), longe dos inputs, no máximo 2 por
-calculadora (1 no mobile). Auto ads ficam **desligados** no painel. Nenhuma
-página institucional (`/sobre`, `/privacidade`, `/termos`, `/contato`) tem anúncio.
+Site aprovado. Slots manuais com altura reservada (zero CLS), longe dos inputs, no
+máximo 2 por calculadora (1 no mobile), mais o **anúncio âncora no topo** via Auto
+ads. Nenhuma página institucional (`/sobre`, `/privacidade`, `/termos`, `/contato`)
+recebe slot manual.
+
+Ids das unidades (padrão em `src/data/ads.ts`): `conteudo` 9964277974,
+`sidebar` 7492183996, `rodape` 6328285295.
 
 Onde cada slot aparece:
 
@@ -77,12 +81,13 @@ Passo a passo no painel (uma vez):
    estados dos EUA, se quiser). O script do AdSense já entrega a CMP; nada a
    codar. A política em `/privacidade` já cita cookies, DoubleClick e opt-out.
 4. **Unidades** — Anúncios → Por unidade → "Display", tamanho *responsivo*.
-   Crie três (conteúdo, sidebar, rodapé) e copie os `data-ad-slot` para
-   `NEXT_PUBLIC_ADSENSE_SLOT_*`.
-5. **Auto ads** — Anúncios → Por site → deixe **desligado** (senão o Google
-   injeta âncora/vignette por cima do card de resultado sticky do mobile).
-6. Redeploy. Enquanto os `SLOT_*` não existem, nenhuma unidade é renderizada
-   (só o script global); com slots e revisão pendente, o espaço fica em branco
-   com a altura reservada — comportamento esperado.
+   Três unidades (conteúdo, sidebar, rodapé); os `data-ad-slot` ficam em
+   `src/data/ads.ts` (env `NEXT_PUBLIC_ADSENSE_SLOT_*` só sobrescreve).
+5. **Auto ads (só âncora)** — Anúncios → Por site → editar o site → ligar Auto
+   ads; em *Formatos*, desligar **anúncios na página** e **vinheta**, deixar só
+   **âncora** com posição **topo** (embaixo cobriria o card de resultado sticky
+   do mobile). Aplicar ao site.
+6. Anúncio novo pode levar de minutos a algumas horas para preencher; enquanto
+   isso o espaço fica em branco com a altura reservada. Ad blocker esconde tudo.
 
 Validar layout sem conta: `NEXT_PUBLIC_ADS_PLACEHOLDER=1 npm run dev`.
