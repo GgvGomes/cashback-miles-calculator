@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { TabNav } from "@/components/layout/TabNav";
+import { Logo } from "@/components/brand/Logo";
 
 const LINKS_RODAPE = [
   { href: "/sobre", label: "Sobre" },
@@ -24,8 +25,20 @@ export function Shell({ children }: { children: React.ReactNode }) {
       >
         {children}
       </main>
-      <footer className="border-t border-border/80">
-        <div className="mx-auto max-w-5xl space-y-3 px-4 py-6 text-xs text-muted-foreground">
+      <footer className="border-t border-border/80 bg-muted/40">
+        <div className="mx-auto max-w-5xl space-y-4 px-4 py-8 text-xs text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <Link
+              href="/"
+              aria-label="Compensa? — início"
+              className="rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            >
+              <Logo markClassName="size-6" />
+            </Link>
+            <span className="text-sm text-muted-foreground">
+              A conta aberta antes de você decidir.
+            </span>
+          </div>
           <nav aria-label="Institucional" className="flex flex-wrap gap-x-4 gap-y-2">
             {LINKS_RODAPE.map((l) => (
               <Link

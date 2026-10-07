@@ -1,21 +1,25 @@
 import { cn } from "cn";
+import { Check, Minus, X, type LucideIcon } from "lucide-react";
 import type { Veredito as VeredictoTipo } from "@/lib/calc/types";
 
 const CONFIG: Record<
   VeredictoTipo,
-  { label: string; className: string }
+  { label: string; className: string; Icone: LucideIcon }
 > = {
   ok: {
     label: "COMPENSA",
+    Icone: Check,
     className: "bg-veredito-ok-bg text-veredito-ok border-veredito-ok/30",
   },
   limite: {
     label: "LIMÍTROFE",
+    Icone: Minus,
     className:
       "bg-veredito-limite-bg text-veredito-limite border-veredito-limite/30",
   },
   nao: {
     label: "NÃO COMPENSA",
+    Icone: X,
     className: "bg-veredito-nao-bg text-veredito-nao border-veredito-nao/30",
   },
 };
@@ -34,10 +38,11 @@ export function Veredito({
     <div className={cn("space-y-1", className)}>
       <span
         className={cn(
-          "inline-flex items-center rounded-md border px-2.5 py-1 text-sm font-semibold",
+          "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-semibold tracking-wide",
           cfg.className
         )}
       >
+        <cfg.Icone className="size-4" strokeWidth={2.75} aria-hidden="true" />
         {cfg.label}
       </span>
       {porque ? (

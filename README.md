@@ -31,6 +31,14 @@ npm run build
 
 Next.js App Router + Tailwind + shadcn/ui. Deploy na Vercel.
 
+### Marca
+
+- Símbolo: `src/components/brand/mark.ts` (geometria única) e `Logo.tsx` (`<LogoMark>`, `<Logo>`).
+- Ícones: `src/app/icon.svg`, `src/app/apple-icon.tsx`, `src/app/manifest.ts` e `src/app/favicon.ico`
+  (estático — regenerar a partir do `icon.svg` se o símbolo mudar).
+- Cores e fonte de títulos: tokens em `src/app/globals.css` (`--brand` violeta; `--veredito-*`
+  são só para COMPENSA / LIMÍTROFE / NÃO COMPENSA). Títulos em Bricolage Grotesque.
+
 ### Variáveis de ambiente
 
 | Nome | Uso |

@@ -25,17 +25,19 @@ export function ResultadoCard({
   return (
     <Card
       className={cn(
-        "sticky bottom-[env(safe-area-inset-bottom)] z-20 md:top-20 md:bottom-auto",
+        "sticky bottom-[env(safe-area-inset-bottom)] z-20 shadow-lg ring-1 shadow-brand/5 ring-brand/15 md:top-20 md:bottom-auto",
         className
       )}
     >
       <CardHeader>
-        <CardTitle className="text-sm text-muted-foreground">
+        <CardTitle className="text-xs font-semibold tracking-wider text-brand uppercase">
           {titulo}
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
-        <p className="text-3xl font-bold tabular-nums">{valorFormatado}</p>
+        <p className="font-heading text-4xl font-bold tracking-tight tabular-nums">
+          {valorFormatado}
+        </p>
         <Veredito veredito={veredito} porque={porque} />
         {acao}
       </CardContent>
